@@ -1,0 +1,276 @@
+#N canvas 258 23 1147 770 10;
+#X declare -path purest_json;
+#X obj 793 688 json-decode, f 12;
+#X obj 794 656 rest;
+#X obj 21 258 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 45 260 s reset;
+#X obj 21 235 t b b;
+#X obj 20 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 655 233 hsl 128 15 0 184 0 0 empty listen_day_rcv empty -2 -8
+0 10 -262144 -1 -1 0 1;
+#X obj 652 255 s listen_day;
+#X obj 651 71 metro 1000;
+#X obj 9 283 tgl 45 0 daily_playback daily_playback_rcv play 0 50 0
+10 -262144 -1 -1 0 1;
+#X obj 709 51 r timing;
+#X obj 651 121 +;
+#X msg 650 94 1;
+#X floatatom 651 142 5 0 0 0 - - -;
+#X msg 607 116 0;
+#X obj 376 308 s timing;
+#X obj 790 711 s decoded;
+#X floatatom 10 464 15 0 0 0 - - -;
+#X floatatom 512 463 15 0 0 0 - - -;
+#X floatatom 501 696 15 0 0 0 - - -;
+#X floatatom 314 700 15 0 0 0 - - -;
+#X floatatom 148 702 15 0 0 0 - - -;
+#X floatatom 186 463 15 0 0 0 - - -;
+#X floatatom 354 466 15 0 0 0 - - -;
+#X floatatom 15 704 15 0 0 0 - - -;
+#X obj 714 460 sound_engine/virus_sound_engine;
+#X obj 373 239 loadbang;
+#N canvas 644 59 719 539 getsize 0;
+#X obj 191 225 json-decode, f 12;
+#X obj 192 193 rest;
+#X obj 195 258 list trim;
+#X obj 183 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 183 409 1;
+#X obj 183 430 + 1;
+#X floatatom 183 453 5 0 0 0 - - -;
+#X obj 191 101 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 140 426 0;
+#X obj 196 343 t b f;
+#X obj 191 78 t b b;
+#X obj 190 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 195 281 route France, f 13;
+#X obj 192 19 loadbang;
+#X obj 199 486 i;
+#X obj 261 430 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 199 507 5 0 0 0 - - -;
+#X obj 200 536 s days;
+#X obj 267 478 s finished_getsize;
+#X obj 145 26 inlet;
+#X obj 660 235 json-decode, f 12;
+#X obj 661 203 rest;
+#X obj 664 268 list trim;
+#X obj 660 111 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 665 353 t b f;
+#X obj 664 291 route France, f 13;
+#X msg 660 150 GET https://pomber.github.io/covid19/timeseries.json
+;
+#X obj 743 266 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 739 354 print;
+#X msg 191 138 GET https://datahub.io/core/covid-19/r/key-countries-pivoted.json
+;
+#X connect 0 0 2 0;
+#X connect 0 1 15 0;
+#X connect 1 0 0 0;
+#X connect 2 0 12 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 5 1;
+#X connect 6 0 14 1;
+#X connect 7 0 29 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 3 0;
+#X connect 10 0 7 0;
+#X connect 11 0 10 0;
+#X connect 12 0 9 0;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X connect 15 0 18 0;
+#X connect 16 0 17 0;
+#X connect 19 0 11 0;
+#X connect 20 0 22 0;
+#X connect 20 1 27 0;
+#X connect 21 0 20 0;
+#X connect 22 0 25 0;
+#X connect 22 0 28 0;
+#X connect 23 0 26 0;
+#X connect 25 0 24 0;
+#X connect 26 0 21 0;
+#X connect 29 0 1 0;
+#X restore 16 87 pd getsize;
+#X obj 16 115 r finished_getsize;
+#X obj 719 439 s pd;
+#X msg 719 397 midi-properties;
+#X msg 730 417 audio-properties;
+#X obj 152 764 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 152 721 change;
+#X obj 152 742 t b;
+#X obj 697 173 sel;
+#X obj 718 109 r days;
+#X msg 697 194 0;
+#X obj 11 527 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 11 484 change;
+#X obj 11 505 t b;
+#X obj 510 527 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 510 484 change;
+#X obj 510 505 t b;
+#X obj 354 533 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 354 490 change;
+#X obj 354 511 t b;
+#X obj 497 314 hsl 128 15 0 1 0 1 master_grain_size empty master_grain_size
+-2 -8 0 10 -262144 -1 -1 800 1;
+#X obj 853 285 hsl 128 15 0 1 0 1 master_random_panning empty master_random_panning
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X obj 852 323 hsl 128 15 0 1 0 1 master_offset_random empty master_offset_random
+-2 -8 0 10 -262144 -1 -1 11200 1;
+#X obj 19 63 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 187 550 s 1_play_one_grain;
+#X obj 186 528 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 186 485 change;
+#X obj 186 506 t b;
+#X obj 15 768 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 15 725 change;
+#X obj 15 746 t b;
+#X obj 16 790 s 0_play_one_grain;
+#X obj 502 770 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 502 727 change;
+#X obj 502 748 t b;
+#X obj 503 792 s 2_play_one_grain;
+#X obj 316 771 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 316 728 change;
+#X obj 316 749 t b;
+#X obj 317 793 s 3_play_one_grain;
+#X obj 607 145 s zero;
+#X obj 607 95 sel 0;
+#X obj 714 483 declare -path purest_json;
+#X obj 153 786 s 4_play_one_grain;
+#X obj 12 550 s 5_play_one_grain;
+#X obj 510 550 s 6_play_one_grain;
+#X obj 355 555 s 7_play_one_grain;
+#X text 409 288 ms per day;
+#X obj 696 212 s daily_playback_rcv;
+#X obj 603 48 r daily_playback;
+#X obj 510 345 virus_country Italy;
+#X obj 313 583 virus_country United_Kingdom;
+#X obj 148 586 virus_country Spain;
+#X obj 15 588 virus_country Iran;
+#X obj 501 582 virus_country Germany;
+#X obj 9 347 virus_country France;
+#X obj 184 346 virus_country China;
+#X obj 353 349 virus_country US;
+#X obj 62 216 s reset_size;
+#X obj 20 194 t b b;
+#X obj 790 133 i;
+#X obj 789 92 r reset_size;
+#X obj 819 110 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 835 151 5 0 0 0 - - -;
+#X msg 783 175 \; listen_day_rcv range 0 \$1;
+#X obj 88 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 714 506 clone led_flash 8;
+#X msg 792 599 GET https://datahub.io/core/covid-19/r/key-countries-pivoted.json
+;
+#X msg 373 266 2000;
+#X floatatom 373 289 5 0 0 0 - - -;
+#X obj 18 160 delay 1000;
+#X msg 834 220 \; listen_day range 0 \$1;
+#X obj 876 373 hsl 128 15 0 1 0 1 master_volume empty master_volume
+-2 -8 0 10 -262144 -1 -1 1600 1;
+#X floatatom 138 298 5 0 0 0 current_day listen_day -;
+#X text 49 61 <- first click this to get the number of days;
+#X text 117 156 <- then maybe click this? it often crashes.;
+#X connect 0 0 16 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 12 0;
+#X connect 10 0 8 1;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 11 1;
+#X connect 13 0 6 0;
+#X connect 13 0 35 0;
+#X connect 14 0 13 0;
+#X connect 14 0 67 0;
+#X connect 17 0 39 0;
+#X connect 18 0 42 0;
+#X connect 19 0 60 0;
+#X connect 20 0 64 0;
+#X connect 21 0 33 0;
+#X connect 22 0 53 0;
+#X connect 23 0 45 0;
+#X connect 24 0 56 0;
+#X connect 26 0 95 0;
+#X connect 28 0 97 0;
+#X connect 30 0 29 0;
+#X connect 31 0 29 0;
+#X connect 32 0 70 0;
+#X connect 33 0 34 0;
+#X connect 34 0 32 0;
+#X connect 35 0 37 0;
+#X connect 36 0 87 1;
+#X connect 37 0 75 0;
+#X connect 38 0 71 0;
+#X connect 39 0 40 0;
+#X connect 40 0 38 0;
+#X connect 41 0 72 0;
+#X connect 42 0 43 0;
+#X connect 43 0 41 0;
+#X connect 44 0 73 0;
+#X connect 45 0 46 0;
+#X connect 46 0 44 0;
+#X connect 50 0 27 0;
+#X connect 52 0 51 0;
+#X connect 53 0 54 0;
+#X connect 54 0 52 0;
+#X connect 55 0 58 0;
+#X connect 56 0 57 0;
+#X connect 57 0 55 0;
+#X connect 59 0 62 0;
+#X connect 60 0 61 0;
+#X connect 61 0 59 0;
+#X connect 63 0 66 0;
+#X connect 64 0 65 0;
+#X connect 65 0 63 0;
+#X connect 68 0 14 0;
+#X connect 76 0 68 0;
+#X connect 76 0 8 0;
+#X connect 77 0 18 0;
+#X connect 78 0 20 0;
+#X connect 79 0 21 0;
+#X connect 80 0 24 0;
+#X connect 81 0 19 0;
+#X connect 82 0 17 0;
+#X connect 82 0 17 0;
+#X connect 83 0 22 0;
+#X connect 83 0 22 0;
+#X connect 84 0 23 0;
+#X connect 84 0 23 0;
+#X connect 86 0 5 0;
+#X connect 86 1 85 0;
+#X connect 87 0 91 0;
+#X connect 87 0 35 1;
+#X connect 87 0 98 0;
+#X connect 88 0 87 0;
+#X connect 89 0 87 0;
+#X connect 90 0 91 0;
+#X connect 92 0 86 0;
+#X connect 94 0 1 0;
+#X connect 95 0 96 0;
+#X connect 96 0 15 0;
+#X connect 97 0 86 0;

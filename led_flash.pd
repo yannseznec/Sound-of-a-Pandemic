@@ -1,0 +1,23 @@
+#N canvas 135 280 881 523 12;
+#X obj 140 328 noteout;
+#X msg 240 282 0;
+#X msg 202 282 1;
+#X obj 128 100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 192 178 delay 10;
+#X obj 126 207 i \$1;
+#X obj 243 54 loadbang;
+#X msg 137 297 \$1;
+#X obj 119 75 r \$1_play_one_grain;
+#X obj 133 249 + 60;
+#X connect 1 0 0 1;
+#X connect 2 0 0 1;
+#X connect 3 0 2 0;
+#X connect 3 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 7 0 0 0;
+#X connect 8 0 3 0;
+#X connect 9 0 7 0;

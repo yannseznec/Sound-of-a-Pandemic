@@ -1,0 +1,90 @@
+#N canvas 280 208 1023 589 10;
+#X declare -lib purest_json;
+#X obj 81 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#N canvas 626 288 482 436 print-to-console 0;
+#X obj 28 17 inlet;
+#X obj 175 19 inlet;
+#X obj 328 20 inlet;
+#X obj 431 18 inlet;
+#X obj 175 129 print decoded-data;
+#X obj 28 101 spigot;
+#X obj 175 100 spigot;
+#X obj 28 128 print complete-data;
+#X obj 328 128 print decoding-done;
+#X obj 328 97 spigot;
+#X connect 0 0 5 0;
+#X connect 1 0 6 0;
+#X connect 2 0 9 0;
+#X connect 3 0 9 1;
+#X connect 3 0 5 1;
+#X connect 3 0 6 1;
+#X connect 5 0 7 0;
+#X connect 6 0 4 0;
+#X connect 9 0 8 0;
+#X restore 12 231 pd print-to-console;
+#X obj 256 155 json-decode, f 12;
+#X msg 279 81 GET https://pomber.github.io/covid19/timeseries.json
+;
+#X obj 184 73 rest;
+#X msg 186 26 GET https://pkgstore.datahub.io/core/covid-19/worldwide-aggregated_json/data/52fa968cb9d9034624da431db933733f/worldwide-aggregated_json.json
+;
+#X obj 645 28 declare -lib purest_json;
+#X obj 360 238 list trim;
+#X obj 360 259 route Confirmed Date;
+#X obj 344 316 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 344 336 1;
+#X obj 344 357 + 1;
+#X floatatom 344 378 5 0 0 0 - - -;
+#X obj 344 407 pack 0 0;
+#X obj 353 282 t b b f;
+#X obj 190 0 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 301 353 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array worldwide 64 float 3;
+#A 0 555 654 941 1434 2118 2927 5578 6166 8234 9927 12038 16787 19881
+23892 27635 30794 34391 37120 40150 42762 44802 45221 60368 171429
+171429 171429 171429 169048 166667 164286 161905 159524 157143 150793
+144444 138095 131745 125396 119047 112697 106348 99998.6 94284.2 88569.8
+82855.4 77141 71426.6 62855 54283.4 45711.8 37140.2 28568.6 17854.1
+7139.56 1187.06 -4765.44 -10717.9 -16670.4 -22622.9 -28575.4 -39289.9
+-50004.4 -60718.9 -78576.4;
+#X coords 0 1e+06 64 0 200 140 1 0 0;
+#X restore 544 245 graph;
+#X obj 327 529 tabwrite worldwide;
+#X floatatom 428 488 5 0 0 0 - - -;
+#X floatatom 323 484 5 0 0 0 - - -;
+#X obj 343 433 unpack 0 0;
+#X floatatom 214 269 5 0 0 0 - - -;
+#X obj 218 313 array size worldwide;
+#X msg 480 122 GET https://pkgstore.datahub.io/core/covid-19/key-countries-pivoted_json/data/48b5e1b888144500c292c4d5c132be3a/key-countries-pivoted_json.json
+;
+#X connect 0 0 1 3;
+#X connect 2 0 1 1;
+#X connect 2 0 7 0;
+#X connect 2 1 1 2;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 7 0 8 0;
+#X connect 8 0 14 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 11 1;
+#X connect 12 0 13 0;
+#X connect 13 0 21 0;
+#X connect 14 0 9 0;
+#X connect 14 2 13 1;
+#X connect 15 0 16 0;
+#X connect 15 0 5 0;
+#X connect 16 0 12 0;
+#X connect 19 0 18 1;
+#X connect 20 0 18 0;
+#X connect 21 0 18 1;
+#X connect 21 1 18 0;
+#X connect 22 0 23 0;
+#X connect 24 0 4 0;

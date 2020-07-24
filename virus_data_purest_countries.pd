@@ -1,0 +1,229 @@
+#N canvas 131 52 1147 770 10;
+#X declare -path purest_json;
+#X obj 209 227 json-decode, f 12;
+#X obj 210 195 rest;
+#X obj 209 106 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 208 138 GET https://pkgstore.datahub.io/core/covid-19/key-countries-pivoted_json/data/48b5e1b888144500c292c4d5c132be3a/key-countries-pivoted_json.json
+;
+#X obj 233 108 s reset;
+#X obj 209 83 t b b;
+#X obj 208 62 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 655 235 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 652 255 s listen_day;
+#X obj 651 71 metro 1000;
+#X obj 33 16 tgl 45 0 daily_playback daily_playback_rcv daily_playback
+0 50 0 10 -262144 -1 -1 0 1;
+#X obj 709 51 r timing;
+#X obj 651 121 +;
+#X msg 650 94 1;
+#X floatatom 651 142 5 0 0 0 - - -;
+#X msg 607 116 0;
+#X floatatom 342 69 5 0 0 0 - - -;
+#X obj 342 90 s timing;
+#X obj 206 250 s decoded;
+#X floatatom 32 314 15 0 0 0 - - -;
+#X floatatom 534 313 15 0 0 0 - - -;
+#X floatatom 609 460 15 0 0 0 - - -;
+#X floatatom 380 461 15 0 0 0 - - -;
+#X floatatom 204 464 15 0 0 0 - - -;
+#X floatatom 208 313 15 0 0 0 - - -;
+#X floatatom 377 315 15 0 0 0 - - -;
+#X floatatom 33 464 15 0 0 0 - - -;
+#X obj 14 155 sound_engine/virus_sound_engine;
+#X msg 338 47 1000;
+#X obj 339 21 loadbang;
+#N canvas 685 164 719 539 getsize 0;
+#X obj 191 225 json-decode, f 12;
+#X obj 192 193 rest;
+#X obj 195 258 list trim;
+#X obj 185 336 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 185 356 1;
+#X obj 185 377 + 1;
+#X floatatom 185 400 5 0 0 0 - - -;
+#X obj 191 101 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 142 373 0;
+#X msg 192 139 GET https://pkgstore.datahub.io/core/covid-19/key-countries-pivoted_json/data/48b5e1b888144500c292c4d5c132be3a/key-countries-pivoted_json.json
+;
+#X obj 194 302 t b f;
+#X obj 191 78 t b b;
+#X obj 190 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 195 279 route France, f 13;
+#X obj 191 33 loadbang;
+#X obj 201 433 i;
+#X obj 263 377 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 201 454 5 0 0 0 - - -;
+#X obj 202 483 s days;
+#X obj 269 425 s finished_getsize;
+#X obj 145 26 inlet;
+#X connect 0 0 2 0;
+#X connect 0 1 16 0;
+#X connect 1 0 0 0;
+#X connect 2 0 13 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 5 1;
+#X connect 6 0 15 1;
+#X connect 7 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 1 0;
+#X connect 10 0 3 0;
+#X connect 11 0 7 0;
+#X connect 12 0 11 0;
+#X connect 13 0 10 0;
+#X connect 14 0 12 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 0;
+#X connect 16 0 19 0;
+#X connect 17 0 18 0;
+#X connect 20 0 12 0;
+#X restore 41 258 pd getsize;
+#X obj 208 42 t b;
+#X obj 208 20 r finished_getsize;
+#X obj 19 134 s pd;
+#X msg 19 92 midi-properties;
+#X msg 30 112 audio-properties;
+#X obj 208 526 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 208 483 change;
+#X obj 208 504 t b;
+#X obj 697 173 sel;
+#X obj 715 141 r days;
+#X msg 697 194 0;
+#X obj 33 377 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 33 334 change;
+#X obj 33 355 t b;
+#X obj 532 377 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 532 334 change;
+#X obj 532 355 t b;
+#X obj 376 383 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 376 340 change;
+#X obj 376 361 t b;
+#X obj 96 660 hsl 128 15 0 1 0 1 master_grain_size empty master_grain_size
+-2 -8 0 10 -262144 -1 -1 400 1;
+#X obj 95 697 hsl 128 15 0 1 0 1 master_random_panning empty master_random_panning
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X obj 95 629 hsl 128 15 0 1 0 1 master_offset_random empty master_offset_random
+-2 -8 0 10 -262144 -1 -1 10000 1;
+#X obj 44 234 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 209 400 s 1_play_one_grain;
+#X obj 208 378 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 208 335 change;
+#X obj 208 356 t b;
+#X obj 33 528 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 33 485 change;
+#X obj 33 506 t b;
+#X obj 34 550 s 0_play_one_grain;
+#X obj 610 534 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 610 491 change;
+#X obj 610 512 t b;
+#X obj 611 556 s 2_play_one_grain;
+#X obj 382 532 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 382 489 change;
+#X obj 382 510 t b;
+#X obj 383 554 s 3_play_one_grain;
+#X obj 607 145 s zero;
+#X obj 607 95 sel 0;
+#X obj 14 178 declare -path purest_json;
+#X obj 209 548 s 4_play_one_grain;
+#X obj 34 400 s 5_play_one_grain;
+#X obj 532 400 s 6_play_one_grain;
+#X obj 377 405 s 7_play_one_grain;
+#X text 378 68 ms per day;
+#X obj 696 212 s daily_playback_rcv;
+#X obj 603 48 r daily_playback;
+#X obj 32 294 virus_country France;
+#X obj 208 292 virus_country China;
+#X obj 377 294 virus_country US;
+#X obj 534 292 virus_country Italy;
+#X obj 608 438 virus_country Germany;
+#X obj 380 440 virus_country United_Kingdom;
+#X obj 204 443 virus_country Spain;
+#X obj 33 443 virus_country Iran;
+#X connect 0 0 18 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 0;
+#X connect 5 0 2 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 9 0 13 0;
+#X connect 11 0 9 1;
+#X connect 12 0 14 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 1;
+#X connect 14 0 7 0;
+#X connect 14 0 39 0;
+#X connect 15 0 14 0;
+#X connect 15 0 71 0;
+#X connect 16 0 17 0;
+#X connect 19 0 43 0;
+#X connect 20 0 46 0;
+#X connect 21 0 64 0;
+#X connect 22 0 68 0;
+#X connect 23 0 37 0;
+#X connect 24 0 57 0;
+#X connect 25 0 49 0;
+#X connect 26 0 60 0;
+#X connect 28 0 16 0;
+#X connect 29 0 28 0;
+#X connect 31 0 6 0;
+#X connect 32 0 31 0;
+#X connect 34 0 33 0;
+#X connect 35 0 33 0;
+#X connect 36 0 74 0;
+#X connect 37 0 38 0;
+#X connect 38 0 36 0;
+#X connect 39 0 41 0;
+#X connect 40 0 39 1;
+#X connect 41 0 79 0;
+#X connect 42 0 75 0;
+#X connect 43 0 44 0;
+#X connect 44 0 42 0;
+#X connect 45 0 76 0;
+#X connect 46 0 47 0;
+#X connect 47 0 45 0;
+#X connect 48 0 77 0;
+#X connect 49 0 50 0;
+#X connect 50 0 48 0;
+#X connect 54 0 30 0;
+#X connect 56 0 55 0;
+#X connect 57 0 58 0;
+#X connect 58 0 56 0;
+#X connect 59 0 62 0;
+#X connect 60 0 61 0;
+#X connect 61 0 59 0;
+#X connect 63 0 66 0;
+#X connect 64 0 65 0;
+#X connect 65 0 63 0;
+#X connect 67 0 70 0;
+#X connect 68 0 69 0;
+#X connect 69 0 67 0;
+#X connect 72 0 15 0;
+#X connect 80 0 72 0;
+#X connect 80 0 9 0;
+#X connect 81 0 19 0;
+#X connect 82 0 24 0;
+#X connect 83 0 25 0;
+#X connect 84 0 20 0;
+#X connect 85 0 21 0;
+#X connect 86 0 22 0;
+#X connect 87 0 23 0;
+#X connect 88 0 26 0;
