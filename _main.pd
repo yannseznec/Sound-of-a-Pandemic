@@ -8,7 +8,7 @@
 #X obj 21 235 t b b;
 #X obj 20 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 655 233 hsl 128 15 0 184 0 0 empty listen_day_rcv empty -2 -8
+#X obj 655 233 hsl 128 15 0 226 0 0 empty listen_day_rcv empty -2 -8
 0 10 -262144 -1 -1 0 1;
 #X obj 652 255 s listen_day;
 #X obj 651 71 metro 1000;
@@ -25,7 +25,7 @@
 #X floatatom 512 463 15 0 0 0 - - -;
 #X floatatom 501 696 15 0 0 0 - - -;
 #X floatatom 314 700 15 0 0 0 - - -;
-#X floatatom 148 702 15 0 0 0 - - -;
+#X floatatom 167 704 15 0 0 0 - - -;
 #X floatatom 186 463 15 0 0 0 - - -;
 #X floatatom 354 466 15 0 0 0 - - -;
 #X floatatom 15 704 15 0 0 0 - - -;
@@ -105,10 +105,10 @@
 #X obj 719 439 s pd;
 #X msg 719 397 midi-properties;
 #X msg 730 417 audio-properties;
-#X obj 152 764 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 171 766 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 152 721 change;
-#X obj 152 742 t b;
+#X obj 171 723 change;
+#X obj 171 744 t b;
 #X obj 697 173 sel;
 #X obj 718 109 r days;
 #X msg 697 194 0;
@@ -125,7 +125,7 @@
 #X obj 354 490 change;
 #X obj 354 511 t b;
 #X obj 497 314 hsl 128 15 0 1 0 1 master_grain_size empty master_grain_size
--2 -8 0 10 -262144 -1 -1 800 1;
+-2 -8 0 10 -262144 -1 -1 7800 1;
 #X obj 853 285 hsl 128 15 0 1 0 1 master_random_panning empty master_random_panning
 -2 -8 0 10 -262144 -1 -1 0 1;
 #X obj 852 323 hsl 128 15 0 1 0 1 master_offset_random empty master_offset_random
@@ -155,7 +155,7 @@
 #X obj 607 145 s zero;
 #X obj 607 95 sel 0;
 #X obj 714 483 declare -path purest_json;
-#X obj 153 786 s 4_play_one_grain;
+#X obj 172 788 s 4_play_one_grain;
 #X obj 12 550 s 5_play_one_grain;
 #X obj 510 550 s 6_play_one_grain;
 #X obj 355 555 s 7_play_one_grain;
@@ -164,9 +164,9 @@
 #X obj 603 48 r daily_playback;
 #X obj 510 345 virus_country Italy;
 #X obj 313 583 virus_country United_Kingdom;
-#X obj 148 586 virus_country Spain;
+#X obj 167 588 virus_country Spain;
 #X obj 15 588 virus_country Iran;
-#X obj 501 582 virus_country Germany;
+#X obj 509 586 virus_country Germany;
 #X obj 9 347 virus_country France;
 #X obj 184 346 virus_country China;
 #X obj 353 349 virus_country US;
@@ -192,6 +192,22 @@
 #X floatatom 138 298 5 0 0 0 current_day listen_day -;
 #X text 49 61 <- first click this to get the number of days;
 #X text 117 156 <- then maybe click this? it often crashes.;
+#X obj 307 376 vsl 10 75 0 1 0 0 1_volume empty empty 0 -9 0 10 -262144
+-1 -1 2600 1;
+#X obj 139 372 vsl 10 75 0 1 0 0 5_volume empty empty 0 -9 0 10 -262144
+-1 -1 1600 1;
+#X obj 468 377 vsl 10 75 0 1 0 0 7_volume empty empty 0 -9 0 10 -262144
+-1 -1 3500 1;
+#X obj 633 374 vsl 10 75 0 1 0 0 6_volume empty empty 0 -9 0 10 -262144
+-1 -1 3200 1;
+#X obj 134 613 vsl 10 75 0 1 0 0 0_volume empty empty 0 -9 0 10 -262144
+-1 -1 3800 1;
+#X obj 288 613 vsl 10 75 0 1 0 0 4_volume empty empty 0 -9 0 10 -262144
+-1 -1 3500 1;
+#X obj 489 612 vsl 10 75 0 1 0 0 3_volume empty empty 0 -9 0 10 -262144
+-1 -1 3900 1;
+#X obj 661 616 vsl 10 75 0 1 0 0 2_volume empty empty 0 -9 0 10 -262144
+-1 -1 3300 1;
 #X connect 0 0 16 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
