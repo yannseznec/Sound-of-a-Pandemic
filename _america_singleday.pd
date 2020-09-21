@@ -1,4 +1,4 @@
-#N canvas 96 111 1140 767 10;
+#N canvas 96 195 1140 767 10;
 #X declare -path purest_json;
 #X obj 722 507 sound_engine/virus_sound_engine;
 #X obj 727 486 s pd;
@@ -16,7 +16,7 @@ master_grain_size -2 -8 0 10 -262144 -1 -1 2300 1;
 #X obj 722 553 clone led_flash 8;
 #X obj 509 605 hsl 128 15 0 1 0 1 master_volume empty master_volume
 -2 -8 0 10 -262144 -1 -1 10700 1;
-#N canvas 0 23 614 441 deathIncrease 1;
+#N canvas 355 23 614 441 deathIncrease 1;
 #X obj 63 155 json-decode;
 #X obj 62 116 rest;
 #X msg 67 71 GET https://api.covidtracking.com/v1/us/current.json;
@@ -28,8 +28,8 @@ master_grain_size -2 -8 0 10 -262144 -1 -1 2300 1;
 #X obj 126 378 outlet;
 #X obj 162 354 s deathIncrease_rcv;
 #X obj 339 341 print deathIncrease;
-#X obj 397 400 t b;
-#X obj 397 421 s playDeaths_rcv;
+#X obj 335 372 t b;
+#X obj 335 393 s playDeaths_rcv;
 #X connect 0 0 3 0;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
