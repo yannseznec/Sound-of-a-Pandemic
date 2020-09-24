@@ -57,7 +57,7 @@ deathIncrease 0 -8 0 20 -262144 -1 -1 1138 256;
 #X obj 463 61 stripnote;
 #X obj 464 128 s playDeaths_rcv;
 #X obj 102 113 nbx 5 25 -1e+37 1e+37 0 1 timing timing_rcv timing 0
--8 0 20 -262144 -1 -1 75 256;
+-8 0 20 -262144 -1 -1 343 256;
 #X obj 461 154 ctlin 16;
 #X obj 476 243 ctlin 17;
 #X obj 461 175 / 127;
