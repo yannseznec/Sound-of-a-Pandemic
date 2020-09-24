@@ -176,7 +176,7 @@
 #X msg 480 154 start;
 #X msg 534 156 stop;
 #X msg 445 127 open test1.wav;
-#X obj 63 67 clone granular_main 2;
+#X obj 63 67 clone granular_main 4;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 4 0 6 0;
