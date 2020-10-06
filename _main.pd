@@ -7,7 +7,7 @@
 #X obj 86 268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 41 195 hsl 128 15 0 1 0 1 master_grain_size master_grain_size_rcv
-master_grain_size -2 -8 0 10 -262144 -1 -1 2300 1;
+master_grain_size -2 -8 0 10 -262144 -1 -1 8500 1;
 #X obj 508 527 hsl 128 15 0 1 0 1 master_random_panning empty master_random_panning
 -2 -8 0 10 -262144 -1 -1 10700 1;
 #X obj 507 565 hsl 128 15 0 1 0 1 master_offset_random empty master_offset_random
@@ -193,7 +193,7 @@ deathIncrease 0 -8 0 20 -262144 -1 -1 325 256;
 #X connect 37 0 38 0;
 #X connect 38 0 36 0;
 #X restore 89 445 pd comport;
-#X obj 85 296 random 4;
+#X obj 85 296 random 8;
 #X connect 2 0 1 0;
 #X connect 3 0 1 0;
 #X connect 4 0 36 0;
