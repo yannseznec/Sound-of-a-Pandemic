@@ -16,7 +16,7 @@ master_grain_size -2 -8 0 10 -262144 -1 -1 8500 1;
 #X obj 722 553 clone led_flash 8;
 #X obj 509 605 hsl 128 15 0 1 0 1 master_volume empty master_volume
 -2 -8 0 10 -262144 -1 -1 10700 1;
-#N canvas 794 23 614 441 deathIncrease 0;
+#N canvas 794 23 614 441 deathIncrease 1;
 #X obj 63 155 json-decode;
 #X obj 62 116 rest;
 #X msg 67 71 GET https://api.covidtracking.com/v1/us/current.json;
@@ -30,6 +30,7 @@ master_grain_size -2 -8 0 10 -262144 -1 -1 8500 1;
 #X obj 339 341 print deathIncrease;
 #X obj 397 400 t b;
 #X obj 397 421 s playDeaths_rcv;
+#X obj 192 25 r playDeaths;
 #X connect 0 0 3 0;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
@@ -41,11 +42,12 @@ master_grain_size -2 -8 0 10 -262144 -1 -1 8500 1;
 #X connect 6 0 2 0;
 #X connect 7 0 2 0;
 #X connect 11 0 12 0;
+#X connect 13 0 2 0;
 #X restore 728 605 pd deathIncrease;
 #X obj 729 577 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 22 38 nbx 5 25 -1e+37 1e+37 0 0 deathIncrease deathIncrease_rcv
-deathIncrease 0 -8 0 20 -262144 -1 -1 325 256;
+deathIncrease 0 -8 0 20 -262144 -1 -1 377 256;
 #X obj 29 103 bng 40 250 50 0 playDeaths playDeaths_rcv playDeaths
 0 45 0 10 -262144 -1 -1;
 #X obj 86 248 r playDeath;
